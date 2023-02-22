@@ -1,24 +1,23 @@
-# README
+# INSTALL INSTRUCTIONS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Database used: sqlite3
 
-Things you may want to cover:
+1. `git clone https://github.com/pocopuede/avo_nested`
+2. `bundle install`
+3. `yarn install`
+3. Start with `bin/dev`
 
-* Ruby version
 
-* System dependencies
+## Reproduce the error
+In order to save time login steps has been avoided
 
-* Configuration
+1. Access: `http://localhost:3030/avo/resources/qualify_questions`
+2. Create a new Qualify Question clicking on button `+ Create new Item`
+3. The error appears
 
-* Database creation
+### The desired action
+Following the next tutorial https://docs.avohq.io/2.0/recipes/nested-records-when-creating.html
+the desired action is to display the form to create a new Qualify Question
+and below add multiple QualificationQuestionAnswers as nested model
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
