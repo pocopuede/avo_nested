@@ -1,0 +1,30 @@
+<!-- app/views/avo/resource_tools/_nested_qualify_question_answers.html.erb -->
+<div class="flex flex-col">
+  <%= content_tag :div,data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do %>
+    <%= render Avo::PanelComponent.new(name: "Qualify Answers", description: "Create answers for this question") do |c| %>
+      <% c.bare_content do %>
+        <% if form.present? %>
+          <template data-nested-form-target="template">
+            <%= form.fields_for :qualify_question_answers, QualifyQuestionAnswer.new, multiple: true, child_index: 'NEW_RECORD' do |todo_fields| %>
+              <%= render "avo/partials/qualify_question_answer", f: todo_fields %>
+            <% end %>
+          </template>
+          <div class="space-y-4">
+            <%= form.fields_for :qualify_question_answers, QualifyQuestionAnswer.new, multiple: true do |todo_fields| %>
+              <%= render "avo/partials/qualify_question_answer", f: todo_fields %>
+            <% end %>
+            <div data-nested-form-target="target"></div>
+          </div>
+        <% end %>
+      <% end %>
+      <% c.footer_tools do %>
+        <div class="mt-4">
+          <%= a_link 'javascript:void(0);', icon: 'plus', color: :primary, style: :outline, data: {action: "click->nested-form#add"} do %>
+            Add another answer
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

@@ -1,0 +1,9 @@
+<%= render Avo::PanelComponent.new do |c| %>
+  <% c.body do %>
+    <div class="nested-form-wrapper divide-y" data-new-record="<%= f.object.new_record? %>">
+      <%= avo_edit_field :answer, as: :string, form: f, help: "Write the answer", required: true %>
+      <%= avo_edit_field :qualify, as: :boolean, form: f, help: "Do this answer qualify?", required: true %>
+      <%= avo_edit_field :quota, as: :number, form: f, help: "% Quota for this answer", required: true %>
+    </div>
+  <% end %>
+<% end %>
